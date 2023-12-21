@@ -1,0 +1,8 @@
+streamlit
+pandas
+Pillow
+janome
+matplotlib
+japanize-matplotlib
+fastapi
+python-multipart
