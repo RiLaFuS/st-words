@@ -74,3 +74,5 @@ if uploaded_file is not None:
             st.pyplot(fig)
             st.write('解析結果の表は以下の通りです。')
             st.dataframe(data)
+
+            st.write('解析が全て終了しました。またのご利用を心よりお待ちしております。')
