@@ -28,7 +28,7 @@ st.write('顧客ニーズの調査や自社の課題解決、サービス改善�
 # Janomeの設定
 janome_tokenizer = Tokenizer()
 
-uploaded_file = st.file_uploader('↓ 今すぐ解析 ↓ （csvファイルを読み込んでください）', type='csv')
+uploaded_file = st.file_uploader('↓ 今すぐ解析 ↓ （csvファイルをアップロードしてください）', type='csv')
 select_pos = st.sidebar.multiselect('↓ 解析したい品詞を選択していただけます。', ['名詞', '固有名詞', '動詞', '形容詞', '副詞', '助詞'], ['名詞'])
 
 def janome_parse(text):
@@ -41,7 +41,7 @@ def janome_parse(text):
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-    tg_col = st.selectbox('↓ csvファイルが読み込めました。次に、解析したい列名を選択してください。 ↓', df.columns)
+    tg_col = st.selectbox('csvファイルが読み込めました。次に解析したい列名を選択し、「実行」をクリックしてください。 ', df.columns)
     if tg_col is not None:
         df = df.dropna()  # 欠損値がある行を削除
         input_text = df[tg_col]
