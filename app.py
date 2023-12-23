@@ -72,7 +72,7 @@ if uploaded_file is not None:
 
             # StreamlitにMatplotlibのグラフを表示
             st.pyplot(fig)
-            st.write('解析結果の表は以下の通りです。')
+            st.write('↓ 出現頻度が高い「キーワード」と出現回数の表です。')
             st.dataframe(data)
 
             st.write('解析が全て終了しました。またのご利用を心よりお待ちしております。')
