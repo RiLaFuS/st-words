@@ -64,9 +64,9 @@ if uploaded_file is not None:
             ax.bar(data['Word'], data['size'])
 
             # グラフのカスタマイズ
-            plt.xlabel('単語', fontsize=14)  # X軸のラベルと文字サイズを設定
-            plt.ylabel('出現回数', fontsize=14)  # Y軸のラベルと文字サイズを設定
-            plt.xticks(rotation=45, fontsize=12)  # X軸のラベルを回転させて表示
+            plt.xlabel('単語', fontsize=12)  # X軸のラベルと文字サイズを設定
+            plt.ylabel('出現回数', fontsize=12)  # Y軸のラベルと文字サイズを設定
+            plt.xticks(rotation=45, fontsize=10)  # X軸のラベルを回転させて表示
             plt.yticks(fontsize=12)  # Y軸のラベルの文字サイズを設定
             plt.title('出現頻度が高い20個の「キーワード」', fontsize=16)  # グラフのタイトルと文字サイズを設定
 
