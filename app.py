@@ -30,25 +30,26 @@ st.write('顧客ニーズの調査や自社課題の解決、サービス改善�
 st.sidebar.title("解析するアンケートをダウンロード")
 st.sidebar.write("いずれかのcsvファイルをダウンロードしてください。")
 # ダウンロードするファイル
-image_files = ["カフェ Sの口コミ.csv", "スポーツクラブ Cの口コミ.csv", "引っ越し業者 Aの口コミ.csv"]
+csv_files = ["カフェ Sの口コミ.csv", "スポーツクラブ Cの口コミ.csv", "引っ越し業者 Aの口コミ.csv"]
 
-# 各動画ファイルに対してダウンロードボタンを追加
-for image_file_name in image_files:
-    image_file_path = Path(image_file_name)
+# 各ファイルに対してダウンロードボタンを追加
+for csv_file_name in csv_files:
+    csv_file_path = Path(csv_file_name)
 
     # ファイルが存在するかどうかを確認
-    if image_file_path.is_file():
+    if csv_file_path.is_file():
         # ファイルを読み込む
-        with open(image_file_path, "rb") as file:
+        with open(csv_file_path, "rb") as file:
+            csv_content = file.read()
             # サイドバーにダウンロードボタンを追加
             st.sidebar.download_button(
-                label=f"{image_file_name}をダウンロード",
-                data=file,
-                file_name=image_file_name,
-                mime="image/jpg",
+                label=f"{csv_file_name}をダウンロード",
+                data=csv_content,
+                file_name=csv_file_name,
+                mime="text/csv",
             )
     else:
-        st.sidebar.write(f"{image_file_name}が見つかりません。")
+        st.sidebar.write(f"{csv_file_name}が見つかりません。")
 
 # Janomeの設定
 janome_tokenizer = Tokenizer()
