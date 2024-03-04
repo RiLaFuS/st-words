@@ -27,7 +27,7 @@ st.write('お客様の声を簡単に解析できるSAKURAは、テキストフ�
 st.write('顧客ニーズの調査や自社課題の解決、サービス改善などにお役立てください。')
 
 # サイドバーにダウンロードボタンを設置
-st.sidebar.title("解析するアンケートをダウンロード")
+st.sidebar.title("解析するアンケートのダウンロードはこちら↓")
 st.sidebar.write("いずれかのcsvファイルをダウンロードしてください。")
 # ダウンロードするファイル
 csv_files = ["カフェ Sの口コミ.csv", "スポーツクラブ Cの口コミ.csv", "引っ越し業者 Aの口コミ.csv"]
@@ -43,7 +43,7 @@ for csv_file_name in csv_files:
             csv_content = file.read()
             # サイドバーにダウンロードボタンを追加
             st.sidebar.download_button(
-                label=f"{csv_file_name}をダウンロード",
+                label=f"{csv_file_name}",
                 data=csv_content,
                 file_name=csv_file_name,
                 mime="text/csv",
