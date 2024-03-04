@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 from janome.tokenizer import Tokenizer
+from pathlib import Path
 
 def set_bg_color():
     st.markdown(
@@ -24,6 +25,30 @@ st.image(image, use_column_width=True)
 st.write('## SAKURAとは')
 st.write('お客様の声を簡単に解析できるSAKURAは、テキストファイル（CSV 形式）をブラウザからアップロードしていただくことで、AI 機能を用いた文章の自動解析が可能なサービスです。口コミやアンケート、問合せなどから注目すべきキーワードを探します。')
 st.write('顧客ニーズの調査や自社課題の解決、サービス改善などにお役立てください。')
+
+# サイドバーにダウンロードボタンを設置
+st.sidebar.title("解析するアンケートをダウンロード")
+st.sidebar.write("いずれかのcsvファイルをダウンロードしてください。")
+# ダウンロードするファイル
+image_files = ["カフェ Sの口コミ.csv", "スポーツクラブ Cの口コミ.csv", "引っ越し業者 Aの口コミ.csv"]
+
+# 各動画ファイルに対してダウンロードボタンを追加
+for image_file_name in image_files:
+    image_file_path = Path(image_file_name)
+
+    # ファイルが存在するかどうかを確認
+    if image_file_path.is_file():
+        # ファイルを読み込む
+        with open(image_file_path, "rb") as file:
+            # サイドバーにダウンロードボタンを追加
+            st.sidebar.download_button(
+                label=f"{image_file_name}をダウンロード",
+                data=file,
+                file_name=image_file_name,
+                mime="image/jpg",
+            )
+    else:
+        st.sidebar.write(f"{image_file_name}が見つかりません。")
 
 # Janomeの設定
 janome_tokenizer = Tokenizer()
